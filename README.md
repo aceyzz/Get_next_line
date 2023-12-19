@@ -1,4 +1,5 @@
-<img src="utils/GET_NEXT_LINE.png" alt="logo_gnl" style="width: 100%">
+<img src="utils/gnl_banner.png" style="width: 100%">
+<img src="utils/gnl_logo.png" style="width: 100%">
 
 ## Index
 
@@ -49,7 +50,7 @@ La fonction [get_next_line](#get_next_linec) permet de lire à partir d'un fichi
    - La lecture du fichier se poursuit tant que la ligne actuelle ne contient pas de caractère de nouvelle ligne (`'\n'`) et que la fonction `read` renvoie des octets valides (`bytes > 0`).
    - Les données lues sont stockées dans `temp`, et `temp` est joint à la fin de la ligne actuelle (`line`).
 
-3. **Fonction `extract_new_line`** :
+3. **Fonction `line_extractor`** :
    - Cette fonction extrait la première ligne de `line`, y compris le caractère de nouvelle ligne (`'\n'`) s'il est présent.
    - Elle alloue un nouvel espace en mémoire pour stocker la ligne extraite.
    - La ligne extraite est ensuite retournée.
@@ -64,7 +65,7 @@ La fonction [get_next_line](#get_next_linec) permet de lire à partir d'un fichi
    - Elle vérifie d'abord que `fd` est valide et que `BUFFER_SIZE` est correctement défini.
    - Elle utilise `read(fd, 0, 0)` pour vérifier que le descripteur de fichier est prêt à être lu.
    - Elle appelle `line_reader` pour lire et construire la ligne actuelle dans `current_line`.
-   - Ensuite, elle utilise `extract_new_line` pour extraire la première ligne de `current_line` et la stocke dans `dest`.
+   - Ensuite, elle utilise `line_extractor` pour extraire la première ligne de `current_line` et la stocke dans `dest`.
    - Enfin, elle utilise `line_remover` pour supprimer la ligne extraite de `current_line`.
 
 <br>
