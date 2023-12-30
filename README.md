@@ -117,3 +117,7 @@ La fonction [get_next_line](#get_next_linec) permet de lire à partir d'un fichi
 |          Note          |          Tests          |
 |:----------------------:|:-----------------------:|
 | ![](./utils/grade.png) | ![](./utils/detail.png) |
+
+
+## License
+[Licence](./LICENSE)
