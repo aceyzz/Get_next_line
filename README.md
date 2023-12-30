@@ -120,4 +120,4 @@ La fonction [get_next_line](#get_next_linec) permet de lire à partir d'un fichi
 
 
 ## License
-[Licence](./LICENSE)
+This work is published under the terms of **[42 Unlicense](./LICENSE)**.
