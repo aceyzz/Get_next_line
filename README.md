@@ -229,8 +229,8 @@ The function [get_next_line](#get_next_linec) allows reading from a given file, 
 
 ## Test Results
 #### [gnlTester by Tripouille](https://github.com/Tripouille/gnlTester)
-<img src="utils/mandatory1.png" alt="gnlTester" style="width: 100%">
-<img src="utils/mandatory2.png" alt="gnlTester" style="width: 100%">
+<img src="utils/obligatoire1.png" alt="gnlTester" style="width: 100%">
+<img src="utils/obligatoire2.png" alt="gnlTester" style="width: 100%">
 <img src="utils/bonus1.png" alt="gnlTester" style="width: 100%">
 <img src="utils/bonus2.png" alt="gnlTester" style="width: 100%">
 
