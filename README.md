@@ -1,6 +1,8 @@
 <img src="utils/gnl_banner.png" style="width: 100%">
 <img src="utils/gnl_logo.png" style="width: 100%">
 
+[ENGLISH VERSION](#english-version)
+
 ## Index
 
 1. [Sujet](#sujet)
@@ -115,6 +117,127 @@ La fonction [get_next_line](#get_next_linec) permet de lire à partir d'un fichi
 ## Résultats de Moulinette
 
 |          Note          |          Tests          |
+|:----------------------:|:-----------------------:|
+| ![](./utils/grade.png) | ![](./utils/detail.png) |
+
+---
+
+# ENGLISH VERSION
+
+## Index
+
+1. [Topic](#topic)
+2. [Description - Mandatory Part](#description---mandatory-part) > [get_next_line.c](#get_next_linec) > [get_next_line_utils.c](#get_next_line_utilsc) > [get_next_line.h](#get_next_lineh)
+3. [Description - Bonus Part](#description---bonus-part) > [get_next_line_bonus.c](#get_next_line_bonusc)
+4. [Test Results](#test-results)
+
+# Topic
+The function [get_next_line](#get_next_linec) allows reading from a given file, one line at a time, without losing the current position in the file. It returns ```1``` if a line has been successfully read, ```0``` if the end of the file has been reached, and ```-1``` in case of an error.
+
+### Mandatory Part
+- Read a file line by line.
+- Return the read line or ```NULL``` in case of error or if there is nothing more to read.
+- Work correctly for reading files or from standard input.
+- Must be followed by a ```\n```, except at the end of the file without ```\n```.
+- ***get_next_line.h*** must contain at least the prototype of the function.
+- ***get_next_line_utils.c*** can contain necessary auxiliary functions.
+- Compile the program with the option ```-D BUFFER_SIZE=n``` to specify the buffer size to use with read().
+- A ```BUFFER_SIZE``` must be defined by default if applicable.
+- Behavior is undefined if the file has been modified between two calls without being fully read.
+- Library ```libft``` is forbidden.
+- Function ```lseek()``` is forbidden.
+- Global variables are forbidden.
+
+### Bonus Part
+- Manage multiple file descriptors simultaneously.
+- Read each of the files without losing the read contents.
+- ***get_next_line*** must be able to display the ```fd``` 3, then 4, 5, then again 3, again 4, etc.
+- 3 files to add (in addition to the mandatory part) :
+	- **get_next_line_bonus.c**
+	- **get_next_line_bonus.h**
+	- **get_next_line_utils_bonus.c**
+
+<br>
+
+## Description - Mandatory Part
+
+#### **[get_next_line.c](./get_next_line.c)**
+
+1. **Including necessary files** :
+   - The function begins by including the header file **get_next_line.h***, which contains the prototype of the function.
+   - If the macro `BUFFER_SIZE` is not defined, it is set to a default value of 42 (customizable).
+
+2. **Function `line_reader`** :
+   - This function is responsible for reading the content of the file associated with the file descriptor (`fd`) and constructing the read line.
+   - A temporary buffer (`temp`) of size `BUFFER_SIZE + 1` is allocated in memory.
+   - Reading from the file continues as long as the current line does not contain a newline character (`'\n'`) and the `read` function returns valid bytes (`bytes > 0`).
+   - Read data is stored in `temp`, and `temp` is joined to the end of the current line (`line`).
+
+3. **Function `line_extractor`** :
+   - This function extracts the first line from `line`, including the newline character (`'\n'`) if present.
+   - It allocates new memory space to store the extracted line.
+   - The extracted line is then returned.
+
+4. **Function `line_remover`** :
+   - This function removes the first line (including the newline character) from `line`.
+   - It allocates new memory space to store the remaining line.
+   - The remaining line is returned.
+
+5. **Function `get_next_line`** :
+   - The main function that coordinates the previous steps to read a line from the file descriptor (`fd`).
+   - It first checks that `fd` is valid and that `BUFFER_SIZE` is correctly defined.
+   - It uses `read(fd, 0, 0)` to check that the file descriptor is ready to be read.
+   - It calls `line_reader` to read and construct the current line in `current_line`.
+   - Then, it uses `line_extractor` to extract the first line from `current_line` and stores it in `dest`.
+   - Finally, it uses `line_remover` to remove the extracted line from `current_line`.
+
+<br>
+
+#### **[get_next_line_utils.c](./get_next_line_utils.c)**
+1. **`ft_strlen`** (Calculating the length of a string)
+2. **`ft_strchr`** (Searching for a character in a string)
+3. **`ft_strjoin`** (Concatenating two strings)
+
+<br>
+
+#### **[get_next_line.h](./get_next_line.h)**
+- Header gathering the prototypes of each function.
+
+<br>
+
+## Description - Bonus Part
+#### **[get_next_line_bonus.c](./get_next_line_bonus.c)**
+1. **Managing multiple file descriptors (fd)** :
+   - The function `get_next_line_bonus` takes a file descriptor (`fd`) as an argument, allowing it to manage multiple files simultaneously. It maintains a `current_line` array to store the lines currently being read for each file descriptor.
+
+2. **`static char *current_line[OPEN_MAX]`** :
+   - Instead of using a single static variable to store the current reading line, an array of pointers is used to manage lines from multiple file descriptors.
+
+3. **Using `OPEN_MAX`** :
+   - `OPEN_MAX` is a system constant representing the maximum number of file descriptors that can be opened simultaneously. This constant is used to size the `current_line` array and allow managing multiple file descriptors.
+
+4. **Call with the specific file descriptor** :
+   - You need to call `get_next_line_bonus` with the file descriptor you wish to read. For example, `get_next_line_bonus(fd1)` for the first file, `get_next_line_bonus(fd2)` for the second file, and so on.
+
+5. **Separate storage for each file descriptor** :
+   - Each file descriptor has its own current reading line stored in `current_line[fd]`. This ensures that reading different files does not interfere with each other.
+
+
+###### ***The other functions remain unchanged.***
+
+<br>
+
+## Test Results
+#### [gnlTester by Tripouille](https://github.com/Tripouille/gnlTester)
+<img src="utils/mandatory1.png" alt="gnlTester" style="width: 100%">
+<img src="utils/mandatory2.png" alt="gnlTester" style="width: 100%">
+<img src="utils/bonus1.png" alt="gnlTester" style="width: 100%">
+<img src="utils/bonus2.png" alt="gnlTester" style="width: 100%">
+
+
+## Moulinette Results
+
+|          Grade          |          Tests          |
 |:----------------------:|:-----------------------:|
 | ![](./utils/grade.png) | ![](./utils/detail.png) |
 
