@@ -1,7 +1,13 @@
-<img src="utils/gnl_banner.png" style="width: 100%">
-<img src="utils/gnl_logo.png" style="width: 100%">
+<img src="git_utils/banner.png" style="width: 100%">
 
-[ENGLISH VERSION](#english-version)
+<br>
+
+---
+
+<br>
+
+<details>
+<summary>FRENCH VERSION</summary>
 
 ## Index
 
@@ -9,6 +15,8 @@
 2. [Descriptif - Partie obligatoire](#descriptif---partie-obligatoire) > [get_next_line.c](#get_next_linec) > [get_next_line_utils.c](#get_next_line_utilsc) > [get_next_line.h](#get_next_lineh)
 3. [Descriptif - Partie bonus](#descriptif---partie-bonus) > [get_next_line_bonus.c](#get_next_line_bonusc)
 4. [Résultat des tests](#résultats-des-tests)
+
+<br>
 
 # Sujet
 La fonction [get_next_line](#get_next_linec) permet de lire à partir d'un fichier donné, une ligne à la fois, sans perdre la position actuelle dans le fichier. Elle retourne ```1``` si une ligne a été lue avec succès, ```0``` si la fin du fichier a été atteinte et ```-1``` en cas d'erreur.
@@ -108,21 +116,30 @@ La fonction [get_next_line](#get_next_linec) permet de lire à partir d'un fichi
 
 ## Résultats des tests
 #### [gnlTester by Tripouille](https://github.com/Tripouille/gnlTester)
-<img src="utils/obligatoire1.png" alt="gnlTester" style="width: 100%">
-<img src="utils/obligatoire2.png" alt="gnlTester" style="width: 100%">
-<img src="utils/bonus1.png" alt="gnlTester" style="width: 100%">
-<img src="utils/bonus2.png" alt="gnlTester" style="width: 100%">
+<img src="git_utils/obligatoire1.png" alt="gnlTester" style="width: 100%">
+<img src="git_utils/obligatoire2.png" alt="gnlTester" style="width: 100%">
+<img src="git_utils/bonus1.png" alt="gnlTester" style="width: 100%">
+<img src="git_utils/bonus2.png" alt="gnlTester" style="width: 100%">
 
 
 ## Résultats de Moulinette
 
 |          Note          |          Tests          |
 |:----------------------:|:-----------------------:|
-| ![](./utils/grade.png) | ![](./utils/detail.png) |
+| ![](./git_utils/grade.png) | ![](./git_utils/detail.png) |
+
+</details>
+
+<br>
 
 ---
 
-# ENGLISH VERSION
+<br>
+
+<details>
+<summary>ENGLISH VERSION</summary>
+
+<br>
 
 ## Index
 
@@ -131,8 +148,12 @@ La fonction [get_next_line](#get_next_linec) permet de lire à partir d'un fichi
 3. [Description - Bonus Part](#description---bonus-part) > [get_next_line_bonus.c](#get_next_line_bonusc)
 4. [Test Results](#test-results)
 
+<br>
+
 # Topic
 The function [get_next_line](#get_next_linec) allows reading from a given file, one line at a time, without losing the current position in the file. It returns ```1``` if a line has been successfully read, ```0``` if the end of the file has been reached, and ```-1``` in case of an error.
+
+<br>
 
 ### Mandatory Part
 - Read a file line by line.
@@ -147,6 +168,8 @@ The function [get_next_line](#get_next_linec) allows reading from a given file, 
 - Library ```libft``` is forbidden.
 - Function ```lseek()``` is forbidden.
 - Global variables are forbidden.
+
+<br>
 
 ### Bonus Part
 - Manage multiple file descriptors simultaneously.
@@ -229,18 +252,20 @@ The function [get_next_line](#get_next_linec) allows reading from a given file, 
 
 ## Test Results
 #### [gnlTester by Tripouille](https://github.com/Tripouille/gnlTester)
-<img src="utils/obligatoire1.png" alt="gnlTester" style="width: 100%">
-<img src="utils/obligatoire2.png" alt="gnlTester" style="width: 100%">
-<img src="utils/bonus1.png" alt="gnlTester" style="width: 100%">
-<img src="utils/bonus2.png" alt="gnlTester" style="width: 100%">
+<img src="git_utils/obligatoire1.png" alt="gnlTester" style="width: 100%">
+<img src="git_utils/obligatoire2.png" alt="gnlTester" style="width: 100%">
+<img src="git_utils/bonus1.png" alt="gnlTester" style="width: 100%">
+<img src="git_utils/bonus2.png" alt="gnlTester" style="width: 100%">
 
 
 ## Moulinette Results
 
 |          Grade          |          Tests          |
 |:----------------------:|:-----------------------:|
-| ![](./utils/grade.png) | ![](./utils/detail.png) |
+| ![](./git_utils/grade.png) | ![](./git_utils/detail.png) |
 
 
 ## License
 This work is published under the terms of **[42 Unlicense](./LICENSE)**.
+
+</details>
